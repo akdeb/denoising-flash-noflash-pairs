@@ -70,6 +70,16 @@ A_Final = (1-allM) .* A_NR .* F_Detail + allM .* A_Base;
 %imwrite(A_Final, './sol_images/carpet_final.tif');
 imwrite(A_Final, './my_output/bottle4_final.tif');
 
+% convert tiff images to jpegs to create a poster
+imwrite(imread('./my_output/bottle4_ambient_bilateral.tif'), './my_output/jpeg/bottle4_ambient_bilateral.jpg');
+imwrite(imread('./my_output/bottle4_final.tif'), './my_output/jpeg/bottle4_final.jpg');
+imwrite(imread('./my_output/bottle4_joint_bilateral.tif'), './my_output/jpeg/bottle4_joint_bilateral.jpg');
+imwrite(imread('./my_output/bottle4_flash_bilateral.tif'), './my_output/jpeg/bottle4_flash_bilateral.jpg');
+imwrite(imread('./my_output/bottle4_flash_detail.tif'), './my_output/jpeg/bottle4_flash_detail.jpg');
+imwrite(imread('./my_output/bottle4_ambient.tif'), './my_output/jpeg/bottle4_ambient.jpg');
+imwrite(imread('./my_output/bottle4_mask.tif'), './my_output/jpeg/bottle4_mask.jpg');
+imwrite(imread('./my_output/bottle4_flash.tif'), './my_output/jpeg/bottle4_flash.jpg');
+
 
 
 

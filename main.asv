@@ -61,15 +61,17 @@ imwrite(flag, outputFlag);
 M = im2double(imread('./my_output/bottle4_mask.tif'));
 A_NR = im2double(imread('./my_output/bottle4_joint_bilateral.tif'));
 A_Base = im2double(imread('./my_output/bottle4_ambient_bilateral.tif'));
-F_Detail = im2double(imread('./sol_images/carpet_flash_detail.tif'));
+F_Detail = im2double(imread('./my_output/bottle4_flash_detail.tif'));
 allM = zeros([size(M), 3]);
 for i=1:3
     allM(:,:,i) = M;
 end
 A_Final = (1-allM) .* A_NR .* F_Detail + allM .* A_Base;
-imwrite(A_Final, './sol_images/carpet_final.tif');
+%imwrite(A_Final, './sol_images/carpet_final.tif');
+imwrite(A_Final, './my_output/bottle4_final.tif');
 
-
+% convert tiff images to jpegs to create a poster
+imwrite(imread(), '');
 
 
 
