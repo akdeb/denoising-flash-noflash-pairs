@@ -1,0 +1,8 @@
+The primary objective of this paper is to remove noise from images taken in low-light and restore details from images taken with the flash-feature. 
+This is genereally highly desirable for photographers to preserve the ambience of environments where it is less important to display details but more appealing to preserve the environment's scene and colors. 
+
+We explore many methods of removing noise - namely we see how the bilateral filter works by acting like a gaussian filter by smoothing an image out but maintaining some edges. 
+Since this does not preserve many details of the ambient (no-flash) image we note the use of a joint bilateral filter where we apply some of the high frequency regions from the flash image and transfer those onto the ambient image, thereby producing a clearer, more detailed picture. 
+While this is certainly very effective, it is not devoid of its own limitations - firstly this is very slow and without any FFT optimizations takes a long time to run (~10-15 minutes on MATLAB on a quadcore processor device); secondly, we still have not succesfully preserved the details from the flash image but only the high-frequency features likes edges. To obtain a detailed image, this is undesirable and we seek to improve this algorithm by adopting a newer method proposed in the paper. 
+
+We create a 'detail' image from the flash image and use this as a template to transfer to the ambient image. This would essentially allow us to preserve the high frequency information and details from the flash image and save the colors from the ambient scene. Merging both in a desriable masked fashion, allows us to obtain a combination of the a flash/no-flash pair to preserve ambience and details of the image.  
